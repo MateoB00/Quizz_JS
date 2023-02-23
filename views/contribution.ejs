@@ -1,0 +1,31 @@
+<%- include('partials/head', {title: 'Contribution'}) %>
+
+<%- include('partials/header') %>
+    <h2 class="text-center">Bonjour, tu veux proposer ton idée de question ?</h2>
+   
+    <form action="/contribution" method="POST">
+        <div class="row justify-content-center">
+        <label for="question" class="text-center">Choisis une question</label>
+        <input type="text" name="question">
+        <div class="row justify-content-center">
+        <label for="categorie" class="text-center">Choisis une catégorie à ta question</label>
+        <select name="categorie" class="w-25">
+            <option value="wtf">Wtf</option>
+            <option value="Bande Dessinée">Bande Dessinée</option>
+            <option value="Géographie">Géographie</option>
+        </select>
+        <label for="answers" class="text-center">Il nous faut des réponses à tes questions (4)</label>
+        <span>La prèmiere question sera la bonne, une seule bonne réponse est valable</span>
+        <input type="hidden" name="questionId">
+        <input type="text" name="answer">
+        <input type="text" name="answer">
+        <input type="text" name="answer">
+        <input type="text" name="answer">
+    </div>
+ 
+    <button type="submit" class="btn btn-primary w-25">Envoie</button>
+    <div>
+    <a href="/" class="btn btn-primary w-25 ">Accueil</a>
+    </div>
+</div>
+</form>

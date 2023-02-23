@@ -1,0 +1,39 @@
+<%- include('partials/head', {title: 'Dashboard Admin'}) %>
+
+<h2 class="text-center h2Quizz">Bonjour Admin</h2>
+
+<%- include('partials/header') %>
+
+<div>
+<h3 class="h3Quizz">Hello</h3>
+</div>
+
+<div class="d-flex justify-content-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Thème</th>
+                <th>Créer le</th>
+                <th>Modifié le</th>
+                <th>Tu valides ?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% questions.forEach( (question) => { %>
+            <tr>
+                <td><%= question.content %></td>
+                <td><%= question.theme %></td>
+                <td><%= question.created.fromNow() %></td>
+                <td><%= question.modified.fromNow() %></td>
+                <form action="/dashboard" method="POST">
+                    <input name="questionId" type="hidden" value="<%= question.id %>">
+                    <td><button class="btn btn-success" type="submit">Validé</button></td>
+                </form>
+            </tr>
+       <% }) %>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,30 @@
+<%- include('partials/head', {title: 'Leaderboard'}) %>
+
+<%- include('partials/header') %>
+
+    <h1 class="text-center">Bien joué <%= username %> Voici les Résultas</h1>
+
+<div class="d-flex justify-content-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Résultat</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% results.forEach( (result) => { %>
+            <tr>
+                <td><%= result.user %></td>
+                <td><%= result.correct %>/<%= result.total %></td>
+                <td><%= result.created.fromNow() %></td>
+            </tr>
+       <% }) %>
+        </tbody>
+    </table>
+
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,17 @@
+<%- include('partials/head', {title: 'Quizz'}) %>
+
+<h2 class="text-center h2Quizz">Bonjour, <%= username %> Sensei</h2>
+
+<%- include('partials/header') %>
+
+<div>
+<h3 class="h3Quizz"><%= question.content %></h3>
+<form action="/quizz" method="POST">
+    <input type="hidden" name="q" value="<%= question.id %>">
+    <% answers.forEach ( (answer) => { %>
+    <button class="buttonQuizz" type="submit" name="answer" value="<%= answer.id %>"><%= answer.content %></button>
+    <% }) %>
+</form>
+</div>
+
+<%- include('partials/footer') %>

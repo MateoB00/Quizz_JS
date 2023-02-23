@@ -1,5 +1,26 @@
 <%- include('partials/head', {title: 'HomePage'}) %>
 
 <%- include('partials/header') %>
-
-<%- include('partials/footer') %>
+<% if (username) { %>
+    <h1 class="text-center">Bonjour, <%= username %> Sensei</h1>
+    <form action="/test" method="POST">
+        <label for="username" class="text-center">Veux-tu changer de pseudo bogoss</label>
+        <input type="text" name="username">
+    <button type="submit" class="btn btn-primary">Commencer le quizz</button>
+    </form>
+<% } else { %>
+<h2></h2>
+<div class="row justify-content-center">
+<form action="/test" method="POST">
+    <label for="username" class="text-center">Choisis un pseudo bogoss</label>
+    <input type="text" name="username">
+<button type="submit" class="btn btn-primary">Commencez le quizz</button>
+</form>
+</div>
+<% } %>
+<div>
+    <a class="btn btn-primary" href="/contribution">Tu veux contribuer aux questions ?</a>
+</div>
+<div>
+    <a class="btn btn-primary" href="/dashboard">Dashboard</a>
+</div>
